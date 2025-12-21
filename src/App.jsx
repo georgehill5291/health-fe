@@ -6,6 +6,7 @@ import PatientsPage from './pages/PatientsPage';
 // Add AuthProvider and LoginPage
 import { AuthProvider, useAuth } from './contexts/AuthProvider';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import Header from './components/Header';
 import LeftNav from './components/LeftNav';
 import './styles/leftnav.css';
@@ -34,6 +35,7 @@ const App = () => {
                 <AppLayout>
                     <Routes>
                         <Route path="/login" element={<LoginPage />} />
+                        <Route path="/register" element={<RegisterPage />} />
                         <Route path="/appointments" element={<ProtectedRoute><AppointmentsPage /></ProtectedRoute>} />
                         <Route path="/patients" element={<ProtectedRoute><PatientsPage /></ProtectedRoute>} />
                         <Route path="/" element={<Navigate to="/patients" replace />} />

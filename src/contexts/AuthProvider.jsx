@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { login as apiLogin, ssoLogin as apiSsoLogin } from '../services/auth';
+import { login as apiLogin, ssoLogin as apiSsoLogin, register as apiRegister } from '../services/auth';
 
 const AuthContext = createContext(null);
 
@@ -41,6 +41,16 @@ export const AuthProvider = ({ children }) => {
     return { ok: false, message: res?.message || 'Login failed' };
   };
 
+  const register = async (payload) => {
+    const res = await apiRegister(payload);
+    if (res?.token) {
+      setUser(res.user || { username: payload.username });
+      setToken(res.token);
+      return { ok: true };
+    }
+    return { ok: false, message: res?.message || 'Registration failed' };
+  };
+
   const ssoLogin = async (provider) => {
     const res = await apiSsoLogin(provider);
     if (res?.token) {
@@ -57,7 +67,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, logout, ssoLogin }}>
+    <AuthContext.Provider value={{ user, token, loading, login, logout, ssoLogin, register }}>
       {children}
     </AuthContext.Provider>
   );
@@ -66,4 +76,3 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
   return useContext(AuthContext);
 };
-

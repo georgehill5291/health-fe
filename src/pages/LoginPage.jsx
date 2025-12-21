@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from '../components/LoginForm';
 import GoogleSSOButton from '../components/GoogleSSOButton';
 import { useAuth } from '../contexts/AuthProvider';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, useLocation, Link } from 'react-router-dom';
 import '../styles/login.css';
 
 const LoginPage = () => {
@@ -17,6 +17,9 @@ const LoginPage = () => {
       <div className="login-or">or</div>
       <div className="sso-button">
         <GoogleSSOButton />
+      </div>
+      <div style={{ marginTop: 12 }}>
+        Don't have an account? <Link to="/register">Create one</Link>
       </div>
     </div>
   );
