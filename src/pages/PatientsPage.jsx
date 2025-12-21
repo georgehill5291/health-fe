@@ -1,12 +1,13 @@
 ﻿import React from 'react';
 import Patients from "../components/Patients";
+import '../styles/patients.css';
 
 const PatientsPage = () => {
     return (
-        <div>
+        <div className="patients-page">
             <h1>Patients</h1>
-            <div style={{ display: "flex", gap: 40 }}>
-              <div style={{ width: 400 }}>
+            <div className="patients-grid">
+              <div className="patients-panel">
                 <Patients />
               </div>
             </div>
