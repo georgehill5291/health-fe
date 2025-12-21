@@ -7,6 +7,8 @@ import PatientsPage from './pages/PatientsPage';
 import { AuthProvider, useAuth } from './contexts/AuthProvider';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import EditPatientPage from './pages/EditPatientPage';
+import CreatePatientPage from './pages/CreatePatientPage';
 import Header from './components/Header';
 import LeftNav from './components/LeftNav';
 import './styles/leftnav.css';
@@ -38,6 +40,8 @@ const App = () => {
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/appointments" element={<ProtectedRoute><AppointmentsPage /></ProtectedRoute>} />
                         <Route path="/patients" element={<ProtectedRoute><PatientsPage /></ProtectedRoute>} />
+                        <Route path="/patients/create" element={<ProtectedRoute><CreatePatientPage /></ProtectedRoute>} />
+                        <Route path="/patients/:id/edit" element={<ProtectedRoute><EditPatientPage /></ProtectedRoute>} />
                         <Route path="/" element={<Navigate to="/patients" replace />} />
                     </Routes>
                 </AppLayout>

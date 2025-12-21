@@ -20,6 +20,12 @@ export async function fetchPatients() {
   return res.json();
 }
 
+export async function fetchPatient(id) {
+  const headers = { ...getAuthHeaders() };
+  const res = await fetch(`${API_BASE}/patients/${id}`, { headers });
+  return res.json();
+}
+
 export async function createPatient(payload) {
   const headers = { 'Content-Type': 'application/json', ...getAuthHeaders() };
   const res = await fetch(`${API_BASE}/patients`, {
@@ -28,6 +34,30 @@ export async function createPatient(payload) {
     body: JSON.stringify(payload),
   });
   return res.json();
+}
+
+export async function updatePatient(id, payload) {
+  const headers = { 'Content-Type': 'application/json', ...getAuthHeaders() };
+  const res = await fetch(`${API_BASE}/patients/${id}`, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(payload),
+  });
+  return res;
+}
+
+export async function deletePatient(id) {
+  const headers = { ...getAuthHeaders() };
+  const res = await fetch(`${API_BASE}/patients/${id}`, {
+    method: 'DELETE',
+    headers,
+  });
+  // Some APIs return empty body on delete; try to parse safely
+  try {
+    return await res.json();
+  } catch (e) {
+    return { ok: res.ok };
+  }
 }
 
 export async function fetchAppointments() {
