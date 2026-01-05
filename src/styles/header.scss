@@ -1,0 +1,39 @@
+@use './_variables' as *;
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid $border;
+  background: #fafafa;
+}
+
+.app-logo {
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.app-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.username {
+  color: $color-muted;
+  font-weight: 600;
+}
+
+.logout-btn {
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid $border;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-link {
+  text-decoration: none;
+  color: $color-primary;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthProvider';
-import '../styles/login.css';
+import '../styles/login.scss';
 
 const GoogleSSOButton = () => {
   const { ssoLogin } = useAuth();

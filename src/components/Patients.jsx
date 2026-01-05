@@ -1,7 +1,7 @@
 ﻿import React, {useEffect, useState} from "react";
 import {fetchPatients, deletePatient} from "../services/api";
 import { Link } from 'react-router-dom';
-import '../styles/patients.css';
+import '../styles/patients.scss';
 
 export default function Patients() {
     const [list, setList] = useState(null);

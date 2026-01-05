@@ -3,7 +3,7 @@ import LoginForm from '../components/LoginForm';
 import GoogleSSOButton from '../components/GoogleSSOButton';
 import { useAuth } from '../contexts/AuthProvider';
 import { Navigate, useLocation, Link } from 'react-router-dom';
-import '../styles/login.css';
+import '../styles/login.scss';
 
 const LoginPage = () => {
   const { user } = useAuth();

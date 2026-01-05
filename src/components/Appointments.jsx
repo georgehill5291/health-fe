@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useState } from "react";
 import { fetchAppointments, fetchPatients, createAppointment } from "../services/api";
-import '../styles/appointments.css';
+import '../styles/appointments.scss';
 
 export default function Appointments() {
   const [appointments, setAppointments] = useState(null);
@@ -31,14 +31,24 @@ export default function Appointments() {
 
   async function onCreate(e) {
     e.preventDefault();
-    if (!patientId || !startUtc) return;
+    setError(null);
+    if (!patientId || !startUtc) return setError('Patient and start time are required');
     const dt = new Date(startUtc);
     if (isNaN(dt.getTime())) return setError('Invalid date');
     const isoUtc = new Date(dt.getTime() - dt.getTimezoneOffset() * 60000).toISOString();
-    await createAppointment({ patientId: Number(patientId), startUtc: isoUtc, durationMinutes: 30 });
-    setStartUtc("");
-    setPatientId("");
-    load();
+
+    try {
+      setLoading(true);
+      await createAppointment({ patientId: Number(patientId), startUtc: isoUtc, durationMinutes: 30 });
+      setStartUtc("");
+      setPatientId("");
+      await load();
+    } catch (err) {
+      // show server validation or error messages
+      setError(err?.message || 'Create appointment failed');
+    } finally {
+      setLoading(false);
+    }
   }
 
   // Normalize shapes to arrays

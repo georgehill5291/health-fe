@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import Patients from "../components/Patients";
-import '../styles/patients.css';
+import '../styles/patients.scss';
 
 const PatientsPage = () => {
     return (

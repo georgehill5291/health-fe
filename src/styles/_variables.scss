@@ -1,0 +1,26 @@
+// Design tokens
+$color-primary: #0d6efd;
+$color-success: #198754;
+$color-danger: #dc3545;
+$color-muted: #6c757d;
+$color-muted-2: #666;
+$bg-panel: #fff;
+$border: #eee;
+$input-border: #ccc;
+$shadow: 0 6px 18px rgba(0,0,0,0.03);
+$radius: 8px;
+$gap: 12px;
+$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+// utility
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+

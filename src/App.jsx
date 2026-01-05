@@ -11,7 +11,7 @@ import EditPatientPage from './pages/EditPatientPage';
 import CreatePatientPage from './pages/CreatePatientPage';
 import Header from './components/Header';
 import LeftNav from './components/LeftNav';
-import './styles/leftnav.css';
+import './styles/leftnav.scss';
 
 const ProtectedRoute = ({ children }) => {
     const { user } = useAuth();

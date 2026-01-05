@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchPatient, updatePatient } from '../services/api';
-import '../styles/patients.css';
+import '../styles/patients.scss';
 
 const EditPatientPage = () => {
   const { id } = useParams();
@@ -60,23 +60,31 @@ const EditPatientPage = () => {
   return (
     <div className="patients-panel">
       <h2>Edit patient</h2>
-      <form onSubmit={onSave} className="patient-form">
-        <label>
-          Full name
-          <input value={fullName} onChange={e => setFullName(e.target.value)} />
-        </label>
-        <label>
-          Email
-          <input value={email} onChange={e => setEmail(e.target.value)} />
-        </label>
-        <label>
-          Phone
-          <input value={phone} onChange={e => setPhone(e.target.value)} />
-        </label>
-        <div style={{ display: 'flex', gap: 8 }}>
-          <button type="submit" disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>
-          <button type="button" onClick={() => navigate('/patients')}>Cancel</button>
-        </div>
+      <form onSubmit={onSave} className="patient-form form-table">
+        <table className="form-table" role="presentation">
+          <tbody>
+            <tr>
+              <th>Full name</th>
+              <td><input value={fullName} onChange={e => setFullName(e.target.value)} /></td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td><input value={email} onChange={e => setEmail(e.target.value)} /></td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td><input value={phone} onChange={e => setPhone(e.target.value)} /></td>
+            </tr>
+            <tr>
+              <td colSpan="2">
+                <div className="form-actions">
+                  <button type="submit" disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>
+                  <button type="button" onClick={() => navigate('/patients')} className="back-link" style={{marginLeft: 8}}>Cancel</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </form>
     </div>
   );

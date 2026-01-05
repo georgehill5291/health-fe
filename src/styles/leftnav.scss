@@ -1,0 +1,66 @@
+@use './_variables' as *;
+
+.leftnav {
+  width: 220px;
+  background: $bg-panel;
+  border-right: 1px solid $border;
+  padding: 12px 8px;
+  box-sizing: border-box;
+  transition: width 0.18s ease;
+  min-height: calc(100vh - 48px);
+}
+
+.leftnav.collapsed {
+  width: 64px;
+}
+
+.leftnav .logo {
+  font-weight: 700;
+  color: $color-primary;
+  margin-bottom: 12px;
+}
+
+.leftnav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leftnav li {
+  margin-bottom: 8px;
+}
+
+.leftnav a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.leftnav a.active {
+  background: $color-primary;
+  color: white;
+}
+
+.leftnav .toggle-btn {
+  display: none; /* initial; we will show via media queries */
+}
+
+@media (max-width: 720px) {
+  .leftnav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    z-index: 1000;
+  }
+  .leftnav.open {
+    transform: translateX(0);
+  }
+  .leftnav .toggle-btn {
+    display: block;
+  }
+}

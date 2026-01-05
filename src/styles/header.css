@@ -1,40 +1,5 @@
-.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 16px;
-  border-bottom: 1px solid #eee;
-  background: #fafafa;
-}
+/* Deprecated: migrated to SCSS
+   Please use ../styles/header.scss instead.
+*/
 
-.app-logo {
-  font-weight: 700;
-  color: #111;
-  text-decoration: none;
-}
-
-.app-right {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.username {
-  color: #333;
-  font-weight: 600;
-}
-
-.logout-btn {
-  padding: 6px 10px;
-  background: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.login-link {
-  text-decoration: none;
-  color: #007bff;
-}
-
+/* intentionally empty */

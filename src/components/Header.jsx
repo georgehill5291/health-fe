@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthProvider';
-import '../styles/header.css';
+import '../styles/header.scss';
 
 const Header = () => {
   const { user, logout } = useAuth();
@@ -32,4 +32,3 @@ const Header = () => {
 };
 
 export default Header;
-

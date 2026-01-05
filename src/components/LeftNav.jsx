@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthProvider';
-import '../styles/leftnav.css';
+import '../styles/leftnav.scss';
 
 const LeftNav = () => {
   const { user } = useAuth();
@@ -30,4 +30,3 @@ const LeftNav = () => {
 };
 
 export default LeftNav;
-

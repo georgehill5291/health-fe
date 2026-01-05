@@ -1,6 +1,6 @@
 import React from 'react';
 import RegisterForm from '../components/RegisterForm';
-import '../styles/login.css';
+import '../styles/login.scss';
 import { useAuth } from '../contexts/AuthProvider';
 import { Navigate, useLocation, Link } from 'react-router-dom';
 
